@@ -46,7 +46,7 @@
     <table class="table table-bordered ">
     <tbody>
       <tr>
-        <td class="text-center font-weight-bold ">Total Cases are identified </td>
+        <td class="text-center font-weight-bold ">The toal identified sufferers</td>
         <td>${covid.cases}</td></tr>
         <tr>
         <td class="text-center font-weight-bold ">Recovered sufferers </td>
@@ -65,21 +65,23 @@
    <table class="table table-bordered ">
     <tbody>
       <tr>
-        <td class="text-center font-weight-bold ">identified cases</td>
+        <td class="text-center font-weight-bold ">The toal identified sufferers</td>
         <td class="text-danger">${covidInfo.cases}</td></tr>
         <tr>
         <td class="text-center font-weight-bold ">recovered sufferers</td>
         <td class="text-danger">${covidInfo.recovered}</td></tr>
-        <tr><td class="text-center font-weight-bold ">All Deaths</td>
+        <tr><td class="text-center font-weight-bold ">Deaths</td>
         <td class="text-danger">${covidInfo.deaths}</td>
       </tr>
       
-      <tr><td class="text-center font-weight-bold ">Today deaths</td>
-        <td class="text-danger">${covidInfo.todayDeaths}</td>
-      </tr>
+ 
       
       <tr><td class="text-center font-weight-bold ">identified cases today</td>
         <td class="text-danger">${covidInfo.todayCases}</td>
+      </tr>
+      
+           <tr><td class="text-center font-weight-bold ">todat deaths </td>
+        <td class="text-danger">${covidInfo.todayDeaths}</td>
       </tr>
       
       <tr><td class="text-center font-weight-bold ">Active Cases </td>
