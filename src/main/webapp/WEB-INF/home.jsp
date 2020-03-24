@@ -80,7 +80,7 @@
         <td class="text-danger">${covidInfo.todayCases}</td>
       </tr>
       
-           <tr><td class="text-center font-weight-bold ">todat deaths </td>
+           <tr><td class="text-center font-weight-bold ">total deaths </td>
         <td class="text-danger">${covidInfo.todayDeaths}</td>
       </tr>
       
