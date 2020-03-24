@@ -46,7 +46,7 @@
     <table class="table table-bordered ">
     <tbody>
       <tr>
-        <td class="text-center font-weight-bold ">The toal identified sufferers</td>
+        <td class="text-center font-weight-bold ">The total identified sufferers</td>
         <td>${covid.cases}</td></tr>
         <tr>
         <td class="text-center font-weight-bold ">Recovered sufferers </td>
