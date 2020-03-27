@@ -123,7 +123,6 @@
 		</table>
 
 
-	</div>
 <br>
 	<h5 class="text-center text-primary"> worldwide Covid-19 Cases info</h5>
 	<div class="jumbotron">
@@ -147,6 +146,7 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 
 
 <br><br>
