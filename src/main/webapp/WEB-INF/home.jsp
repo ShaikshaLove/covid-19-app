@@ -45,7 +45,7 @@
 				class="text-dark">
 				<!--  Join with us to bury the covid-19 -->
 				<strong class="text-primary"> Flash News!</strong> <strong><c:out
-						value="${AP}"></c:out> cases were completely positive in Andhrapradesh</strong>
+						value="${AP}"></c:out> cases were just completely positive in Andhrapradesh</strong>
 			</marquee>
 		</div>
 		<br>
