@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sun.mail.util.MailConnectException;
 
 import io.app.client.CovidApiClient;
+import io.app.client.CovidStateWiseDataClient;
 import io.app.dto.Covid;
 import io.app.dto.CovidInfo;
 import io.app.event.SubscriberCreatedEvent;
@@ -32,6 +33,9 @@ public class SubscriberController {
 	@Autowired
 	private ApplicationEventPublisher eventPubisher;
 	
+
+	@Autowired
+	private CovidStateWiseDataClient apiStateWiseCovidData;
 	
 	@RequestMapping(method = RequestMethod.POST,value="/subscribe")
 	public String save(@ModelAttribute Subscriber subscriber,ModelMap modelMap) {
@@ -40,8 +44,10 @@ public class SubscriberController {
 		 CovidInfo covidInfo=apiClient.getCovidInfo();
 		 modelMap.put("covid",covid);
 		 modelMap.put("covidInfo",covidInfo);
-		 modelMap.put("message","Thanks for your subscription in getting covid-19 news letters via email");
+		 modelMap.put("message","A great appreciation for the subscription in receiving news letters about covid-19 via email");
 		 modelMap.put("subscriber",new Subscriber());
+		 modelMap.put("AP",apiStateWiseCovidData.getStateWiseCovidCases().get("Andhra Pradesh"));
+		 modelMap.put("TS",apiStateWiseCovidData.getStateWiseCovidCases().get("Telengana"));
 		 return "home";
 	}
 	
