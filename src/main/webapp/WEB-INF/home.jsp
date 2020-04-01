@@ -52,30 +52,31 @@
 		<div>
 
 			<p style="font-family: 'Baloo Thambi 2', cursive;"
-				class="text-center text-success">Being terrified to covid-19
-				does let you enormously responsible and I'm pretty sure that you'll
-				not be reckless</p>
+				class="text-center text-secondary">Being terrified to covid-19
+				does let you enormously responsible in taking precautions. I wish we were safely surviving soon and had normal days.
+				#StayHome#StaySafe
+				#NotToBeReckless</p>
 			<br>
-									<h5 class="text-center text-secondary"><c:out value="${AP.updateDate}"></c:out></h5>
+		<h5 class="text-center text-success"><c:out value="${AP.updateDate}"></c:out></h5>
 			
-			<table class="table table-dark ">
+			<table class="table table-sm table-responsive table-dark ">
 				<thead>
 					<tr>
-						<th class="text-center">State</th>
-						<th class="text-center">Total Cases</th>
-						<th class="text-center">Recovered</th>
-						<th class="text-center">Active Cases</th>
-						<th class="text-center">Deaths</th>
-					</tr>
+						<th class="text-center"><small>State</small></th>
+						<th class="text-center"><small>Total Cases</small></th>
+						<th class="text-center"><small>Recovered</small></th>
+						<th class="text-center"><small>Active Cases</small></th>
+<!-- 						<th class="text-center">Deaths</th>
+ -->					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center"><c:out value="${AP.stateName}"></c:out></td>
-						<td class="text-center"><c:out value="${AP.numberOfCases}"></c:out></td>
-						<td class="text-center"><c:out value="${AP.recovered}"></c:out></td>
-						<td class="text-center"><c:out value="${AP.activeCases}"></c:out></td>
-						<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
-
+						<td class="text-center"><small><c:out value="${AP.stateName}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.numberOfCases}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.recovered}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.activeCases}"></c:out></small></td>
+<%-- 						<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
+ --%>
 					</tr>
 					<%-- <tr>
 						<td class="text-center"><c:out value="${TS.stateName}"></c:out></td>
