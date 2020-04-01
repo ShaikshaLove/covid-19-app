@@ -18,9 +18,10 @@
 
 <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap"
 	rel="stylesheet">
-	
-	
-<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet"> 	
+
+
+<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap"
+	rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2|Prompt&display=swap"
 	rel="stylesheet">
@@ -36,40 +37,59 @@
 	</nav>
 
 	<div class="container-sm">
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 
 		<div class="border border-danger rounded-pill">
 			<marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
 				class="text-dark">
 				<!--  Join with us to bury the covid-19 -->
-				<strong class="text-primary"> Flash News!   </strong> <strong><c:out
-						value="${AP}"></c:out> cases were just completely positive in Andhrapradesh</strong>
+				<strong class="text-primary"> Flash News!&nbsp;</strong> <strong><c:out
+						value="${AP.numberOfCases}"></c:out> cases were completely
+					positive in Andhrapradesh</strong>
 			</marquee>
 		</div>
 		<br>
 		<div>
-		
-		<p style="font-family: 'Baloo Thambi 2', cursive;"
-				class="text-center text-success">Being terrified to covid-19 does
-				let you enormously responsible and I'm pretty sure that you'll not
-				be reckless</p>
-		<br>
-		
-		
-			<table class="table table-dark ">
-				<tr>
-					<td class="text-center">Andhrapradesh</td>
-					<td class="text-center"><c:out value="${AP}"></c:out></td>
-				</tr>
-				<tr>
-					<td class="text-center">Telengana</td>
-					<td class="text-center"><c:out value="${TS}"></c:out></td>
-				</tr>
-			</table>
 
+			<p style="font-family: 'Baloo Thambi 2', cursive;"
+				class="text-center text-success">Being terrified to covid-19
+				does let you enormously responsible and I'm pretty sure that you'll
+				not be reckless</p>
+			<br>
+									<h5 class="text-center text-secondary"><c:out value="${AP.updateDate}"></c:out></h5>
 			
+			<table class="table table-dark ">
+				<thead>
+					<tr>
+						<th class="text-center">State</th>
+						<th class="text-center">Total Cases</th>
+						<th class="text-center">Recovered</th>
+						<th class="text-center">Active Cases</th>
+						<th class="text-center">Deaths</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="text-center"><c:out value="${AP.stateName}"></c:out></td>
+						<td class="text-center"><c:out value="${AP.numberOfCases}"></c:out></td>
+						<td class="text-center"><c:out value="${AP.recovered}"></c:out></td>
+						<td class="text-center"><c:out value="${AP.activeCases}"></c:out></td>
+						<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
+
+					</tr>
+					<%-- <tr>
+						<td class="text-center"><c:out value="${TS.stateName}"></c:out></td>
+						<td class="text-center"> <c:out
+								value="${TS.numberOfCases}"></c:out></td>
+						<td class="text-center"> <c:out
+								value="${TS.recovered}"></c:out></td>
+						<td class="text-center"> <c:out
+								value="${TS.activeCases}"></c:out></td>
+						<td class="text-center"> <c:out
+								value="${TS.deaths}"></c:out></td>
+					</tr> --%>
+				</tbody>
+			</table>
 		</div>
 		<c:if test="${message ne null }">
 			<div
@@ -83,7 +103,7 @@
 			</div>
 		</c:if>
 
-		<br> 
+		<br>
 
 		<h5 class="text-center font-weight-bold text-info">The real
 			information till now-India</h5>
@@ -123,40 +143,43 @@
 		</table>
 
 
-<br>
-	<h5 class="text-center text-primary"> worldwide Covid-19 Cases info</h5>
-	<div class="jumbotron">
-		<table class="table table-bordered ">
-			<tbody>
-				<tr>
-					<td class="text-center font-weight-bold ">Total Cases are
-						identified</td>
-					<td>${covid.cases}</td>
-				</tr>
-				<tr>
-					<td class="text-center font-weight-bold ">Recovered sufferers
-					</td>
-					<td>${covid.recovered}</td>
-				</tr>
-				<tr>
-					<td class="text-center font-weight-bold ">The total deaths</td>
-					<td>${covid.deaths}</td>
-				</tr>
+		<br>
+		<h5 class="text-center text-primary">worldwide Covid-19 Cases
+			info</h5>
+		<div class="jumbotron">
+			<table class="table table-bordered ">
+				<tbody>
+					<tr>
+						<td class="text-center font-weight-bold ">Total Cases are
+							identified</td>
+						<td>${covid.cases}</td>
+					</tr>
+					<tr>
+						<td class="text-center font-weight-bold ">Recovered sufferers
+						</td>
+						<td>${covid.recovered}</td>
+					</tr>
+					<tr>
+						<td class="text-center font-weight-bold ">The total deaths</td>
+						<td>${covid.deaths}</td>
+					</tr>
 
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
 
 
-<br><br>
+	<br>
+	<br>
 
 
 
 	<nav class="navbar fixed-bottom navbar-dark bg-light">
-		<span class="text-dark" style="font-family: 'Exo 2', sans-serif;">Designed and developed by <a
-			href="https://www.facebook.com/shaiksha.sha.505" class="text-danger">shaiksha
-				sayyad</a></span>
+		<span class="text-dark" style="font-family: 'Exo 2', sans-serif;">Designed
+			and developed by <a href="https://www.facebook.com/shaiksha.sha.505"
+			class="text-danger">shaiksha sayyad</a>
+		</span>
 	</nav>
 
 	<!-- <nav class="navbar navbar-sm bg-dark navbar-dark fixed-bottom">

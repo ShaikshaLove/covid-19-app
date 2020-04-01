@@ -13,6 +13,7 @@ import io.app.service.ISubscriberService;
 
 @Service
 public class SubscriberServiceImpl implements ISubscriberService {
+	
 @Autowired
 private SubscriberRepository subscriberRepository;
 

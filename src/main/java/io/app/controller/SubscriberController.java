@@ -21,6 +21,7 @@ import io.app.dto.Covid;
 import io.app.dto.CovidInfo;
 import io.app.event.SubscriberCreatedEvent;
 import io.app.model.Subscriber;
+import io.app.service.IStateCovidInfoService;
 import io.app.service.ISubscriberService;
 
 @Controller
@@ -33,9 +34,11 @@ public class SubscriberController {
 	@Autowired
 	private ApplicationEventPublisher eventPubisher;
 	
-
 	@Autowired
-	private CovidStateWiseDataClient apiStateWiseCovidData;
+	private IStateCovidInfoService stateCovidInfoService;
+	/*
+	 * @Autowired private CovidStateWiseDataClient apiStateWiseCovidData;
+	 */
 	
 	@RequestMapping(method = RequestMethod.POST,value="/subscribe")
 	public String save(@ModelAttribute Subscriber subscriber,ModelMap modelMap) {
@@ -46,8 +49,14 @@ public class SubscriberController {
 		 modelMap.put("covidInfo",covidInfo);
 		 modelMap.put("message","A great appreciation for the subscription in receiving news letters about covid-19 via email");
 		 modelMap.put("subscriber",new Subscriber());
-		 modelMap.put("AP",apiStateWiseCovidData.getStateWiseCovidCases().get("Andhra Pradesh"));
-		 modelMap.put("TS",apiStateWiseCovidData.getStateWiseCovidCases().get("Telengana"));
+		 modelMap.put("AP",stateCovidInfoService.getBySateName("Andhrapradesh"));
+		 modelMap.put("TS",stateCovidInfoService.getBySateName("Telengana"));
+		/*
+		 * modelMap.put("AP",apiStateWiseCovidData.getStateWiseCovidCases().
+		 * get("Andhra Pradesh"));
+		 * modelMap.put("TS",apiStateWiseCovidData.getStateWiseCovidCases().get(
+		 * "Telengana"));
+		 */
 		 return "home";
 	}
 	
@@ -65,6 +74,8 @@ public class SubscriberController {
 		 modelMap.put("covidInfo",covidInfo);
 		 modelMap.put("message","Thanks for your subscription in getting covid-19 news letters via email");
 		 modelMap.put("subscriber",new Subscriber());
+		 modelMap.put("AP",stateCovidInfoService.getBySateName("Andhrapradesh"));
+		 modelMap.put("TS",stateCovidInfoService.getBySateName("Telengana"));
 		 return "home";
 	}
 
