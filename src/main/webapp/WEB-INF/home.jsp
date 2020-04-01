@@ -59,7 +59,7 @@
 			<br>
 		<h5 class="text-center text-success"><c:out value="${AP.updateDate}"></c:out></h5>
 			
-			<table class="table table-sm table-responsive table-dark ">
+			<table class="table table-responsive table-dark ">
 				<thead>
 					<tr>
 						<th class="text-center">State</th>
@@ -145,7 +145,7 @@
 
 
 		<br>
-		<h5 class="text-center text-primary">worldwide Covid-19 Cases
+		<h5 class="text-center text-primary">Worldwide Covid-19 Cases
 			info</h5>
 		<div class="jumbotron">
 			<table class="table table-bordered ">
