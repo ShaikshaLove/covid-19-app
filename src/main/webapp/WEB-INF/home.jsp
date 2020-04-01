@@ -41,7 +41,7 @@
 
 		<div class="border border-danger rounded-pill">
 			<marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
-				class="text-dark">
+				class="text-success">
 				<!--  Join with us to bury the covid-19 -->
 				<strong class="text-primary"> Flash News!&nbsp;</strong> <strong><c:out
 						value="${AP.numberOfCases}"></c:out> cases were completely
