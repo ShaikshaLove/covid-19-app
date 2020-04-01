@@ -62,19 +62,19 @@
 			<table class="table table-sm table-responsive table-dark ">
 				<thead>
 					<tr>
-						<th class="text-center"><small>State</small></th>
-						<th class="text-center"><small>Total Cases</small></th>
-						<th class="text-center"><small>Recovered</small></th>
-						<th class="text-center"><small>Active Cases</small></th>
+						<th class="text-center">State</th>
+						<th class="text-center">Total Cases</th>
+						<th class="text-center">Recovered</th>
+						<th class="text-center">Active Cases</th>
 <!-- 						<th class="text-center">Deaths</th>
  -->					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center"><small><c:out value="${AP.stateName}"></c:out></small></td>
-						<td class="text-center"><small><c:out value="${AP.numberOfCases}"></c:out></small></td>
-						<td class="text-center"><small><c:out value="${AP.recovered}"></c:out></small></td>
-						<td class="text-center"><small><c:out value="${AP.activeCases}"></c:out></small></td>
+						<td class="text-center"><c:out value="${AP.stateName}"></c:out></td>
+						<td class="text-center"><small><c:out value="${AP.numberOfCases}"></c:out></td>
+						<td class="text-center"><small><c:out value="${AP.recovered}"></c:out></td>
+						<td class="text-center"><small><c:out value="${AP.activeCases}"></c:out></td>
 <%-- 						<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
  --%>
 					</tr>
