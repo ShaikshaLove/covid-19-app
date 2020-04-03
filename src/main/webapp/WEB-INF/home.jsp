@@ -66,8 +66,8 @@
 						<th class="text-center">Total Cases</th>
 						<th class="text-center">Recovered</th>
 						<th class="text-center">Active Cases</th>
-<!-- 						<th class="text-center">Deaths</th>
- -->					</tr>
+						<th class="text-center">Deaths</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -75,8 +75,8 @@
 						<td class="text-center"><small><c:out value="${AP.numberOfCases}"></c:out></td>
 						<td class="text-center"><small><c:out value="${AP.recovered}"></c:out></td>
 						<td class="text-center"><small><c:out value="${AP.activeCases}"></c:out></td>
-<%-- 						<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
- --%>
+         					<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
+
 					</tr>
 					<%-- <tr>
 						<td class="text-center"><c:out value="${TS.stateName}"></c:out></td>
