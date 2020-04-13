@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html  xmlns:th="http://www.thymeleaf.org" lang="te">
+<head>
+    <title>Covid-19</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap"
+          rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap"
+          rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2|Prompt&display=swap"
+            rel="stylesheet">
+<body style="height: 1000px">
+
+<nav style="background-color: purple"
+     class="navbar fixed-top navbar-dark ">
+    <a class="text-light navbar-brand">Covid-19</a> <a class="form-inline">
+    <button class="btn btn-outline-warning btn-sm my-2 my-sm-0"
+            data-toggle="modal" data-target="#staticBackdrop">Join With
+        Us</button>
+</a>
+</nav>
+
+<div class="container-sm">
+    <br/> <br/> <br/>
+
+    <div class="border border-danger rounded-pill">
+        <marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
+                 class="text-dark">
+            <!--  Join with us to bury the covid-19 -->
+            <strong class="text-danger"> Flash News!&nbsp;</strong> <span th:text="${ap.totalConfirmed}">&nbsp; &nbsp;</span><span th:text="#{message.scroll}"> </span>
+        </marquee>
+    </div>
+    <br/>
+
+
+        <ul>
+            <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point1}" class="text-center text-secondary"></li>
+            <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
+            <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
+        </ul>
+
+        <br>
+
+
+        <table class="table table-sm table-responsive table-dark ">
+            <thead>
+            <tr>
+                <th class="text-center" th:text="#{state}"></th>
+                <th class="text-center"  th:text="#{ap.totalCases}"></th>
+                <th class="text-center" th:text="#{ap.recovered}"></th>
+                <th class="text-center" th:text="#{ap.deaths}"></th>
+<!--
+                <th class="text-center"><small><span th:text="#{ap.activeCases}"></span></small></th>
+-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="text-center" th:text="#{state.ap}"></td>
+                <td class="text-center" th:text="${ap.totalConfirmed}"></td>
+                <td class="text-center" th:text="${ap.discharged}"></td>
+                <td class="text-center" th:text="${ap.deaths}"></td>
+<!--
+                <td class="text-center"><small><span th:text="${ap.totalConfirmed-ap.discharged-ap.deaths}"></span></small></td>
+-->
+
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <h5 class="text-center font-weight-bold text-info" th:text="#{country}"></h5>
+
+        <table class="table table-bordered ">
+            <tbody>
+            <tr>
+                <td class="text-center font-weight-bold " th:text="#{ap.totalCases}"></td>
+                <td class="text-danger" th:text="${covidInfo.cases}"></td>
+            </tr>
+            <tr>
+                <td class="text-center font-weight-bold " th:text="#{ap.recovered}"></td>
+                <td class="text-danger" th:text="${covidInfo.recovered}"></td>
+            </tr>
+            <tr>
+                <td class="text-center font-weight-bold " th:text="#{ap.deaths}" ></td>
+                <td class="text-danger" th:text="${covidInfo.deaths}"></td>
+            </tr>
+
+
+            <tr>
+                <td class="text-center font-weight-bold " th:text="#{ap.todayIdentifiedCases}">
+                    </td>
+                <td class="text-danger" th:text="${covidInfo.todayCases}"></td>
+            </tr>
+
+            <tr>
+                <td class="text-center font-weight-bold " th:text="#{ap.activeCases}"></td>
+                <td class="text-danger" th:text="${covidInfo.active}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+<nav class="navbar fixed-bottom navbar-dark bg-light">
+		<span class="text-dark" style="font-family: 'Exo 2', sans-serif;">Designed
+			and developed by <a href="https://www.facebook.com/shaiksha.sha.505"
+                                class="text-danger">shaiksha sayyad</a>
+		</span>
+</nav>
+</body>
+</html>

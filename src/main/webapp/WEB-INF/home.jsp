@@ -41,10 +41,10 @@
 
 		<div class="border border-danger rounded-pill">
 			<marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
-				class="text-success">
+				class="text-dark">
 				<!--  Join with us to bury the covid-19 -->
-				<strong class="text-primary"> Flash News!&nbsp;</strong> <strong><c:out
-						value="${AP.numberOfCases}"></c:out> cases were completely
+				<strong class="text-danger"> Flash News!&nbsp;</strong> <strong><c:out
+						value="${AP.totalConfirmed}"></c:out> cases were completely
 					positive in Andhrapradesh</strong>
 			</marquee>
 		</div>
@@ -56,26 +56,30 @@
 				does let you enormously responsible in taking precautions. I wish we were safely surviving soon and had normal days.
 				#StayHome#StaySafe
 				#NotToBeReckless</p>
+
+
+
+
 			<br>
-		<h5 class="text-center text-success"><c:out value="${AP.updateDate}"></c:out></h5>
+<%--		<h5 class="text-center text-success"><c:out value="${AP.updateDate}"></c:out></h5>--%>
 			
-			<table class="table table-responsive table-dark ">
+			<table class="table table-sm table-responsive table-dark ">
 				<thead>
 					<tr>
-						<th class="text-center">State</th>
-						<th class="text-center">Total Cases</th>
-						<th class="text-center">Recovered</th>
-						<th class="text-center">Active Cases</th>
-						<th class="text-center">Deaths</th>
-					</tr>
+						<th class="text-center"><small>State</small></th>
+						<th class="text-center"><small>Total Cases</small></th>
+						<th class="text-center"><small>Recovered</small></th>
+						<th class="text-center"><small>Deaths</small></th>
+						<th class="text-center"><small>Active Cases</small></th>
+ 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center"><c:out value="${AP.stateName}"></c:out></td>
-						<td class="text-center"><small><c:out value="${AP.numberOfCases}"></c:out></td>
-						<td class="text-center"><small><c:out value="${AP.recovered}"></c:out></td>
-						<td class="text-center"><small><c:out value="${AP.activeCases}"></c:out></td>
-         					<td class="text-center"><c:out value="${AP.deaths}"></c:out></td>
+						<td class="text-center"><small><c:out value="${AP.loc}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.totalConfirmed}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.discharged}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.deaths}"></c:out></small></td>
+						<td class="text-center"><small><c:out value="${AP.totalConfirmed-AP.discharged-AP.deaths}"></c:out></small></td>
 
 					</tr>
 					<%-- <tr>
@@ -145,7 +149,7 @@
 
 
 		<br>
-		<h5 class="text-center text-primary">Worldwide Covid-19 Cases
+		<h5 class="text-center text-primary">worldwide Covid-19 Cases
 			info</h5>
 		<div class="jumbotron">
 			<table class="table table-bordered ">
