@@ -25,12 +25,12 @@
             rel="stylesheet">
 <body style="height: 1000px">
 
-<nav style="background-color: purple"
+<nav style="background-color: goldenrod"
      class="navbar fixed-top navbar-dark ">
-    <a class="text-light navbar-brand">Covid-19</a> <a class="form-inline">
-    <button class="btn btn-outline-warning btn-sm my-2 my-sm-0"
-            data-toggle="modal" data-target="#staticBackdrop">Join With
-        Us</button>
+    <a class="text-light navbar-brand">Covid-Info</a> <a class="form-inline">
+    <button class="btn btn-primary btn-sm my-2 my-sm-0"
+            data-toggle="modal" data-target="#staticBackdrop">Visitors Count : <span class="font-weight-bold" th:text="${visitorCount}"></span>
+        </button>
 </a>
 </nav>
 
@@ -41,17 +41,20 @@
         <marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
                  class="text-dark">
             <!--  Join with us to bury the covid-19 -->
-            <strong class="text-danger"> Flash News!&nbsp;</strong> <span th:text="${ap.totalConfirmed}">&nbsp; &nbsp;</span><span th:text="#{message.scroll}"> </span>
+            <strong class="text-danger"> Flash News!&nbsp;</strong> <span th:text="${ap.totalConfirmed}"></span>
+            <span th:text="#{message.scroll}"> </span>
         </marquee>
     </div>
     <br/>
 
+     <div class="container">
+         <ul>
+             <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
+             <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
+         </ul>
+     </div>
 
-        <ul>
-            <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point1}" class="text-center text-secondary"></li>
-            <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
-            <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
-        </ul>
+
 
         <br>
 
