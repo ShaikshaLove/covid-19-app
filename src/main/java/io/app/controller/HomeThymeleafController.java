@@ -25,7 +25,7 @@ public class HomeThymeleafController {
     @GetMapping("/")
     public String home(Model model){
        Counter counter=counterService.updateCount();
-        model.addAttribute("ap",indCovidClient.getData().getData().getRegional().get(0));
+        model.addAttribute("ap",indCovidClient.getData().getData().getRegional().get(1));
         model.addAttribute("covidInfo",covidApiClient.getCovidInfo());
         model.addAttribute("visitorCount",counter.getCount());
         return "home";
