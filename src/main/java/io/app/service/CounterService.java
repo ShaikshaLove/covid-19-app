@@ -15,7 +15,7 @@ public class CounterService {
     @PostConstruct
     public  void saveIntial(){
        if(!counterRepository.findById(new Integer(1)).isPresent()){
-           counterRepository.save(new Counter(1,5000));
+           counterRepository.save(new Counter(1,1000));
        }
     }
 

@@ -23,19 +23,47 @@
     <link
             href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2|Prompt&display=swap"
             rel="stylesheet">
-<body style="height: 1000px">
+<body style="height: 1200px">
 
-<nav style="background-color: goldenrod"
-     class="navbar fixed-top navbar-dark ">
-    <a class="text-light navbar-brand">Covid-Info</a> <a class="form-inline">
-    <button class="btn btn-primary btn-sm my-2 my-sm-0"
-            data-toggle="modal" data-target="#staticBackdrop">Visitors Count : <span class="font-weight-bold" th:text="${visitorCount}"></span>
-        </button>
+<script>
+    $(document).ready(
+        function () {
+            $("#showTip").modal('show');
+        }
+    );
+
+</script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="showTip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-pill border-success">
+
+            <div class="modal-body text-danger">
+                <img src="images/tips.jpg" class="img-fluid rounded-pill" >
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<nav
+        class="navbar fixed-top navbar-dark navbar-light ">
+    <a class="text-light navbar-brand"><img src="images/doct-fight-covid-19.jpg" height="70px" width="150px" /></a> <a class="form-inline">`
+    <button class="btn btn-warning btn-sm my-2 my-sm-0"
+            data-toggle="modal" data-target="#staticBackdrop"><small>Visitors Count : <span class="font-weight-bold" th:text="${visitorCount}"></span></small>
+    </button>
 </a>
 </nav>
 
-<div class="container-sm">
-    <br/> <br/> <br/>
+
+
+
+
+<div style="padding-top: 100px" class="container-sm">
+
 
     <div class="border border-danger rounded-pill">
         <marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
@@ -47,79 +75,95 @@
     </div>
     <br/>
 
-     <div class="container">
-         <ul>
-             <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
-             <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
-         </ul>
-     </div>
+    <div class="container">
+        <ul>
+            <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
+            <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
+        </ul>
+    </div>
 
 
 
-        <br>
-
-        <table class="table table-sm table-responsive table-dark ">
-            <thead>
-            <tr>
-                <th class="text-center" th:text="#{state}"></th>
-                <th class="text-center"  th:text="#{ap.totalCases}"></th>
-                <th class="text-center" th:text="#{ap.recovered}"></th>
-                <th class="text-center" th:text="#{ap.deaths}"></th>
-<!--
-                <th class="text-center"><small><span th:text="#{ap.activeCases}"></span></small></th>
--->
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center" th:text="#{state.ap}"></td>
-                <td class="text-center" th:text="${ap.totalConfirmed}"></td>
-                <td class="text-center" th:text="${ap.discharged}"></td>
-                <td class="text-center" th:text="${ap.deaths}"></td>
-<!--
-                <td class="text-center"><small><span th:text="${ap.totalConfirmed-ap.discharged-ap.deaths}"></span></small></td>
--->
-
-            </tr>
-            </tbody>
-        </table>
-        <br/>
-        <h5 class="text-center font-weight-bold text-info" th:text="#{country}"></h5>
-
-        <table class="table table-bordered ">
-            <tbody>
-            <tr>
-                <td class="text-center font-weight-bold " th:text="#{ap.totalCases}"></td>
-                <td class="text-danger" th:text="${covidInfo.cases}"></td>
-            </tr>
-            <tr>
-                <td class="text-center font-weight-bold " th:text="#{ap.recovered}"></td>
-                <td class="text-danger" th:text="${covidInfo.recovered}"></td>
-            </tr>
-            <tr>
-                <td class="text-center font-weight-bold " th:text="#{ap.deaths}" ></td>
-                <td class="text-danger" th:text="${covidInfo.deaths}"></td>
-            </tr>
+    <br>
 
 
-            <tr>
-                <td class="text-center font-weight-bold " th:text="#{ap.todayIdentifiedCases}">
-                    </td>
-                <td class="text-danger" th:text="${covidInfo.todayCases}"></td>
-            </tr>
+    <table class="table table-sm table-responsive table-dark ">
+        <thead>
+        <tr>
+            <th class="text-center" th:text="#{state}"></th>
+            <th class="text-center"  th:text="#{ap.totalCases}"></th>
+            <th class="text-center" th:text="#{ap.recovered}"></th>
+            <th class="text-center" th:text="#{ap.deaths}"></th>
+            <!--
+                            <th class="text-center"><small><span th:text="#{ap.activeCases}"></span></small></th>
+            -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="text-center" th:text="#{state.ap}"></td>
+            <td class="text-center" th:text="${ap.totalConfirmed}"></td>
+            <td class="text-center" th:text="${ap.discharged}"></td>
+            <td class="text-center" th:text="${ap.deaths}"></td>
+            <!--
+                            <td class="text-center"><small><span th:text="${ap.totalConfirmed-ap.discharged-ap.deaths}"></span></small></td>
+            -->
 
-            <tr>
-                <td class="text-center font-weight-bold " th:text="#{ap.activeCases}"></td>
-                <td class="text-danger" th:text="${covidInfo.active}"></td>
-            </tr>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
 
-            </tbody>
-        </table>
-
-
-
+    <div class="mx auto shadow shadow-sm">
+        <img src="images/tips1.jpg" class="img-fluid">
 
     </div>
+
+    <br/>
+    <br/>
+
+
+    <h5 class="text-center shadow shadow-sm font-weight-bold text-info" th:text="#{country}"></h5>
+
+    <table class="table shadow shadow-sm table-bordered ">
+        <tbody>
+        <tr>
+            <td class="text-center font-weight-bold " th:text="#{ap.totalCases}"></td>
+            <td class="text-danger" th:text="${covidInfo.cases}"></td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold " th:text="#{ap.recovered}"></td>
+            <td class="text-danger" th:text="${covidInfo.recovered}"></td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold " th:text="#{ap.deaths}" ></td>
+            <td class="text-danger" th:text="${covidInfo.deaths}"></td>
+        </tr>
+
+
+        <tr>
+            <td class="text-center font-weight-bold " th:text="#{ap.todayIdentifiedCases}">
+            </td>
+            <td class="text-danger" th:text="${covidInfo.todayCases}"></td>
+        </tr>
+
+        <tr>
+            <td class="text-center font-weight-bold " th:text="#{ap.activeCases}"></td>
+            <td class="text-danger" th:text="${covidInfo.active}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <div class="mx auto shadow shadow-sm">
+        <img src="images/coronavirus_key_symptoms.jpg" class="img-fluid">
+
+    </div>
+    <br>
+    <br>
+
 
 </div>
 
