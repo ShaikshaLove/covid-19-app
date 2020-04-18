@@ -2,7 +2,7 @@
 
 <html  xmlns:th="http://www.thymeleaf.org" lang="te">
 <head>
-    <title>Covid-19</title>
+    <title>AppCovid</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
@@ -53,8 +53,7 @@
         class="navbar fixed-top navbar-dark navbar-ligth ">
     <a class="text-light navbar-brand"><img src="images/doct-fight-covid-19.jpg" height="70px" width="150px" /></a> 
 	<a class="form-inline">
-    <button class="btn btn-warning btn-sm my-2 my-sm-0"
-            data-toggle="modal" data-target="#staticBackdrop"><small>Visitors Count : <span class="font-weight-bold" th:text="${visitorCount}"></span></small>
+    <button class="btn btn-warning btn-sm my-2 my-sm-0"><small>Seen: <span class="font-weight-bold" th:text="${visitorCount}"></span></small>
     </button>
 </a>
 </nav>
