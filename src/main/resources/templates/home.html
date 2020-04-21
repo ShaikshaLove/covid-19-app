@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
-<html  xmlns:th="http://www.thymeleaf.org" lang="te">
+<html  xmlns:th="http://www.thymeleaf.org" lang="te" ng-app="MyApp">
 <head>
-    <title>AppCovid</title>
+    <title>Covid-19</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
@@ -17,22 +17,125 @@
     <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap"
           rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap"
           rel="stylesheet">
     <link
             href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2|Prompt&display=swap"
             rel="stylesheet">
-<body style="height: 1200px">
+<body style="height: 1200px"  ng-controller="StateWiseDataCtrl">
 
 <script>
     $(document).ready(
         function () {
             $("#showTip").modal('show');
+
+            $("#subscribe").click(
+                function () {
+                    $("#districtDataModal").modal('show');
+                }
+            );
         }
     );
 
 </script>
+
+
+
+<div class="modal fade" id="districtDataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <h5 class="modal-title text-center text-success" id="exampleModalLongTitle">AP DISTRICT WISE COVID CASES</h5>
+
+               <div class="modal-body">
+
+
+                   <div ng-show="showLoader" class="d-flex justify-content-center">
+                       <div class="spinner-border" role="status">
+                           <span class="sr-only">Loading...</span>
+                       </div>
+                   </div>
+
+
+                   <table ng-show="isLoaded" class="table table-stripped">
+                       <thead> <tr>
+                           <th>#</th>
+                           <th>District</th>
+                           <th>Conformed</th>
+                       </tr></thead>
+                       <tbody>
+                       <tr ng-repeat="state in statewiseData" >
+                           <td>{{$index+1}}</td>
+                           <td>{{state.district}}</td>
+                           <td>{{state.confirmed}}</td>
+                       </tr>
+                       </tbody>
+                   </table>
+
+
+
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subscriber modal-->
+
+<div  id="subscribeModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <form >
+                    <div class="row">
+                        <div class="col">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-success">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-pill border-success">
+
+                <form >
+                    <div class="row">
+                        <div class="col">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-success">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
 
 
 <!-- Modal -->
@@ -40,8 +143,19 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content rounded-pill border-success">
 
-            <div class="modal-body text-danger">
+            <div class="modal-body  text-danger">
                 <img src="images/tips.jpg" class="img-fluid rounded-pill" >
+
+                <!--<form >
+                    <div class="row">
+                        <div class="col">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-success">Subscribe</button>
+                        </div>
+                    </div>
+                </form>-->
             </div>
         </div>
     </div>
@@ -51,9 +165,9 @@
 
 <nav
         class="navbar fixed-top navbar-dark navbar-ligth ">
-    <a class="text-light navbar-brand"><img src="images/doct-fight-covid-19.jpg" height="70px" width="150px" /></a> 
-	<a class="form-inline">
-    <button class="btn btn-warning btn-sm my-2 my-sm-0"><small>Visited?: <span class="font-weight-bold" th:text="${visitorCount}"></span></small>
+    <a class="text-light navbar-brand"><img src="images/doct-fight-covid-19.jpg" height="70px" width="150px" /></a> <a class="form-inline">`
+    <button class="btn btn-warning btn-sm my-2 my-sm-0"
+            data-toggle="modal" data-target="#staticBackdrop"><small>Visitors Count : <span class="font-weight-bold" th:text="${visitorCount}"></span></small>
     </button>
 </a>
 </nav>
@@ -75,13 +189,14 @@
     </div>
     <br/>
 
-    <div class="container">
+    <div class="container text-center">
         <ul>
             <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
             <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
         </ul>
+     <br>
+        <button id="subscribe" ng-click="getStateWiseData()" class="btn btn btn-danger"><strong>Click here for AP district wise cases</strong></button>
     </div>
-
 
 
     <br>
