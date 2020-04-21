@@ -8,8 +8,13 @@ app.controller("StateWiseDataCtrl",function($scope,$http) {
         $http.get("https://api.covid19india.org/v2/state_district_wise.json").then(
              function(response){
                 $scope.statewiseData=response.data;
-                $scope.statewiseData=$scope.statewiseData[12].districtData;
-                 $scope.statewiseData.sort(function(a,b){return b.confirmed-a.confirmed})
+                 $scope.statewiseData.forEach(function (state) {
+                     if(state.state==="Andhra Pradesh"){
+                         $scope.statewiseData=state.districtData;
+                     }
+                 });
+                console.log($scope.statewiseData);
+                $scope.statewiseData.sort(function(a,b){return b.confirmed-a.confirmed})
                 $scope.isLoaded=true;
                 $scope.showLoader=false;
              },
