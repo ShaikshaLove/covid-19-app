@@ -177,23 +177,27 @@
 
 
 <div style="padding-top: 100px" class="container-sm">
-
+    
 
     <div class="border border-danger rounded-pill">
         <marquee scrollamount="3" style="font-family: 'Prompt', sans-serif;"
                  class="text-dark">
             <!--  Join with us to bury the covid-19 -->
-            <strong class="text-danger"> Flash News!&nbsp;</strong> <span th:text="${ap.totalConfirmed}"></span>
-            <span th:text="#{message.scroll}"> </span>
+            <strong class="text-danger"> Flash News!&nbsp;</strong> 
+		<strong>The COVID cases information showing here has been automatically fetched from the central and state governments' databases</strong>
+		 <!-- <span th:text="${ap.totalConfirmed}"></span>
+            <span th:text="#{message.scroll}"> </span>-->
         </marquee>
     </div>
     <br/>
 
     <div class="container text-center">
         <ul>
+            <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point1}" class="text-center text-secondary"></li>
             <li style="font-family: 'Baloo Thambi 2', cursive;" th:text="#{point2}" class="text-center text-secondary"></li>
             <li style="font-family: 'Baloo Thambi 2', cursive;"  th:text="#{point3}" class="text-center text-secondary"></li>
-        </ul>
+
+	 </ul>
      <br>
         <button id="subscribe" ng-click="getStateWiseData()" class="btn btn-sm btn-danger"><strong>Click here for AP district wise cases</strong></button>
     </div>
